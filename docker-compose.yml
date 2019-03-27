@@ -27,6 +27,6 @@ services:
   # c   - "22101:22"
 
 networks:
-  defaults:
+  default:
     external:
       name: gpu-net
