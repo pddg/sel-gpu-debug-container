@@ -1,0 +1,35 @@
+version: "2.4"
+services:
+  cuda92:
+    image: pddg/sel-gpu-debug-container:9.2
+    container_name: cuda92
+    volumes:
+      - /mnt:/mnt:rw
+      - /home/zacco:/home/zacco:rw
+      - /etc/nslcd.conf:/etc/nslcd.conf:ro
+      - /etc/pam.d:/etc/pam.d:ro
+      - /etc/sudoers:/etc/sudoers:ro
+      - /etc/sudoers.d:/etc/sudoers.d:ro
+    ports:
+      - "22092:22"
+    runtime: nvidia
+    networks:
+      - gpu-nodes
+  cuda100:
+    extends: cuda92
+    image: pddg/sel-gpu-debug-container:10.0
+    container_name: cuda100
+    ports:
+      - "22100:22"
+  cuda101:
+    extends: cuda92
+    image: pddg/sel-gpu-debug-container:10.1
+    container_name: cuda101
+    ports:
+      - "22101:22"
+
+networks:
+  defaults:
+    external:
+      name: gpu-net
+    
