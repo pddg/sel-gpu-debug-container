@@ -16,14 +16,15 @@ services:
     container_name: cuda100
     ports:
       - "22100:22"
-  cuda101:
-    extends:
-      file: docker-compose.base.yml
-      service: cuda
-    image: pddg/sel-gpu-debug-container:10.1
-    container_name: cuda101
-    ports:
-      - "22101:22"
+  # `unsatisfied condition` error occured
+  # cuda101:
+  # c extends:
+  # c   file: docker-compose.base.yml
+  # c   service: cuda
+  # c image: pddg/sel-gpu-debug-container:10.1
+  # c container_name: cuda101
+  # c ports:
+  # c   - "22101:22"
 
 networks:
   defaults:
