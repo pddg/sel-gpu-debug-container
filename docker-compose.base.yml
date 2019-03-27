@@ -1,0 +1,13 @@
+version: "2.4"
+services:
+  cuda:
+    image: pddg/sel-gpu-debug-container:9.2
+    container_name: cuda92
+    volumes:
+      - /mnt:/mnt:rw
+      - /home/zacco:/home/zacco:rw
+      - /etc/nslcd.conf:/etc/nslcd.conf:ro
+      - /etc/pam.d:/etc/pam.d:ro
+      - /etc/sudoers:/etc/sudoers:ro
+      - /etc/sudoers.d:/etc/sudoers.d:ro
+    runtime: nvidia
