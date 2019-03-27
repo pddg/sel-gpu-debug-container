@@ -11,3 +11,4 @@ services:
       - /etc/sudoers:/etc/sudoers:ro
       - /etc/sudoers.d:/etc/sudoers.d:ro
     runtime: nvidia
+    restart: always
