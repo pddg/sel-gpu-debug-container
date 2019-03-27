@@ -25,7 +25,8 @@ RUN apt-get update -y && \
     apt-get autoremove -y
 
 # Install sshd and configure LDAP auth
-RUN apt-get install -y --no-install-recommends \
+RUN mkdir /var/run/sshd && \
+    apt-get install -y --no-install-recommends \
         openssh-server \
         libnss-ldap \
         libpam-ldap \
