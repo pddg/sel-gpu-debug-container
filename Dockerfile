@@ -6,6 +6,10 @@ LABEL maintainer "Shoma Kokuryo <s-kokuryo@se.is.kit.ac.jp>"
 ENV TZ Asia/Tokyo
 ENV DEBIAN_FRONTEND noninteractive
 
+COPY init.sh /init.sh
+
+RUN chmod u+x /init.sh
+
 # Install base tools
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends \
@@ -25,12 +29,12 @@ RUN apt-get update -y && \
     apt-get autoremove -y
 
 # Install sshd and configure LDAP auth
-RUN mkdir /var/run/sshd && \
+RUN mkdir -p /var/run/sshd && \
     apt-get install -y --no-install-recommends \
         openssh-server \
+        rsyslog \
         libnss-ldap \
-        libpam-ldap \
-        ldap-utils && \
+        libpam-ldap && \
     sed -i -e 's/^passwd:\(.*\)$/passwd:\1 ldap/g' /etc/nsswitch.conf && \
     sed -i -e 's/^group:\(.*\)$/group:\1 ldap/g' /etc/nsswitch.conf && \
     sed -i -e 's/^shadow:\(.*\)$/shadow:\1 ldap/g' /etc/nsswitch.conf && \
@@ -53,4 +57,4 @@ RUN apt-add-repository ppa:neovim-ppa/stable && \
 
 EXPOSE 22
 
-CMD ["/usr/sbin/sshd", "-D"]
+CMD ["/init.sh"]
