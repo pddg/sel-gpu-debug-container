@@ -34,7 +34,7 @@ RUN mkdir -p /var/run/sshd && \
         openssh-server \
         libnss-ldap \
         libpam-ldap \
-        ldap-utils
+        ldap-utils \
         nslcd && \
     sed -i -e 's/^passwd:\(.*\)$/passwd:\1 ldap/g' /etc/nsswitch.conf && \
     sed -i -e 's/^group:\(.*\)$/group:\1 ldap/g' /etc/nsswitch.conf && \
