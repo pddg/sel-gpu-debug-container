@@ -1,5 +1,5 @@
 #!/bin/bash
 
-/usr/sbin/nslcd
+ln -sf /am/home/roundgoby /home/zacco
 /usr/sbin/sshd -D
 

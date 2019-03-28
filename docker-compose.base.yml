@@ -5,10 +5,7 @@ services:
     container_name: cuda92
     volumes:
       - /mnt:/mnt:rw
-      - /home/zacco:/home/zacco:rw
+      - /am/home/roundgoby:/am/home/roundgoby:rw
       - /etc/nslcd.conf:/etc/nslcd.conf:ro
-      - /etc/pam.d:/etc/pam.d:ro
-      - /etc/sudoers:/etc/sudoers:ro
-      - /etc/sudoers.d:/etc/sudoers.d:ro
     runtime: nvidia
     restart: always
