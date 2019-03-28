@@ -32,7 +32,7 @@ RUN apt-get update -y && \
 RUN mkdir -p /var/run/sshd && \
     apt-get install -y --no-install-recommends \
         openssh-server \
-        rsyslog \
+        nslcd \
         libnss-ldap \
         libpam-ldap && \
     sed -i -e 's/^passwd:\(.*\)$/passwd:\1 ldap/g' /etc/nsswitch.conf && \
