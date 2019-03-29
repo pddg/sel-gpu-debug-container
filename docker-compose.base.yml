@@ -7,5 +7,6 @@ services:
       - /mnt:/mnt:rw
       - /am/home/roundgoby:/am/home/roundgoby:rw
       - /etc/nslcd.conf:/etc/nslcd.conf:ro
+      - /etc/ldap.conf:/etc/ldap.conf
     runtime: nvidia
     restart: always

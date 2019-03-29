@@ -6,6 +6,7 @@ services:
       service: cuda
     image: pddg/sel-gpu-debug-container:9.2
     container_name: cuda92
+    hostname: cuda92
     ports:
       - "22092:22"
   cuda100:
@@ -14,6 +15,7 @@ services:
       service: cuda
     image: pddg/sel-gpu-debug-container:10.0
     container_name: cuda100
+    hostname: cuda100
     ports:
       - "22100:22"
   # `unsatisfied condition` error occured

@@ -19,6 +19,9 @@ RUN apt-get update -y && \
         python3-dev \
         python3-pip \
         python3-setuptools \
+        libpng-dev \
+        libjpeg8-dev \
+        libfreetype6-dev \
         tzdata \
         git \
         sudo \
@@ -48,6 +51,7 @@ RUN apt-add-repository ppa:neovim-ppa/stable && \
     apt-get install -y --no-install-recommends \
         vim \
         neovim \
+        less \
         tmux \
         screen \
         wget && \
